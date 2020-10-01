@@ -1,8 +1,6 @@
 package com.company.my_contacts;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
 
 public class Main {
     /*
@@ -44,7 +42,7 @@ public class Main {
         - Обратить внимание на то, что как-то надо генерировать случайный уникальный идентификатор при добавлении человека
     */
     public static void main(String[] args) throws IOException {
-        Contact_book p = new Contact_book();
+        ContactBook p = new ContactBook();
         p.addPerson(new Person("Петров", "Дмитрий", "Васильевич"));
         p.addPerson(new Person("Сидоров", "Илья", "Егорович"));
         p.addPerson(new Person("Иванов ", "Артур", "Львович"));

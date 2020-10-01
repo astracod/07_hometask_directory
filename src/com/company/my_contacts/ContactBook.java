@@ -6,12 +6,12 @@ import java.io.PrintWriter;
 import java.io.Writer;
 import java.util.ArrayList;
 
-public class Contact_book {
+public class ContactBook {
     private ArrayList<Person> book;
     private ArrayList<String> contacts;
 
 
-    public Contact_book() {
+    public ContactBook() {
 
         book = new ArrayList<>();
         contacts = new ArrayList<>();

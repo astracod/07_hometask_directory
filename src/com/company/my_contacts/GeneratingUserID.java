@@ -1,10 +1,10 @@
 package com.company.my_contacts;
 
-public class Generating_user_ID {
+public class GeneratingUserID {
 
     private int personId;
 
-public Generating_user_ID(){
+public GeneratingUserID(){
     this.personId = createId();
 }
 

@@ -7,7 +7,7 @@ public class Person  {
     private String name;
     private String patronymic;
     private String surname;
-    private Generating_user_ID id = new Generating_user_ID();
+    private GeneratingUserID id = new GeneratingUserID();
     private int myId;
 
     public Person() {

@@ -16,15 +16,18 @@ public class Phone {
 
     public String checkingContactType(String contact) {
         char marker = '@';
+        boolean type = false;
         for (int i = 0; i < contact.length(); i++) {
             if (contact.charAt(i) != marker) {
-                personNumber = "+" + contact + " phone ";
-                break;
-            } else {
-                personNumber = contact + " email ";
+                type = true;
+            }
+            if (contact.charAt(i) == marker) {
+                type = false;
                 break;
             }
         }
+        if (type) personNumber = "+" + contact + " phone ";
+        if (!type) personNumber = contact + " email ";
         return personNumber;
     }
 
