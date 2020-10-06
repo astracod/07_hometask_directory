@@ -1,6 +1,14 @@
 package com.company.my_contacts;
 
+import com.company.my_contacts.dao.contracts.ContactDao;
+import com.company.my_contacts.dao.contracts.PersonDao;
+import com.company.my_contacts.dao.implementation.ContactFileDao;
+import com.company.my_contacts.dao.implementation.PersonFileDao;
+import com.company.my_contacts.entities.Contact;
+import com.company.my_contacts.entities.Person;
+
 import java.io.IOException;
+import java.util.List;
 
 public class Main {
     /*
@@ -41,20 +49,16 @@ public class Main {
         - Стараться максимально руководствыватся принципами SOLID
         - Обратить внимание на то, что как-то надо генерировать случайный уникальный идентификатор при добавлении человека
     */
+
+    final static String PERSON_FILE_PATH = "C:/Users/Admin/Desktop/humans.txt";
+    final static String CONTACT_FILE_PATH = "C:/Users/Admin/Desktop/contacts.txt";
+
     public static void main(String[] args) throws IOException {
-        ContactBook p = new ContactBook();
-        p.addPerson(new Person("Петров", "Дмитрий", "Васильевич"));
-        p.addPerson(new Person("Сидоров", "Илья", "Егорович"));
-        p.addPerson(new Person("Иванов ", "Артур", "Львович"));
-        System.out.println(p);
-
-
-       p.createContact(p.getNam(1) ,"380687747270");
-       p.createContact(p.getNam(2) ,"380660002211");
-       p.createContact(p.getNam(3) ,"380687749999");
-       p.createContact(p.getNam(3) ,"artur@gmail.com");
-
-
-        p.show();
+        PersonDao personDao = new PersonFileDao(PERSON_FILE_PATH);
+        ContactDao contactDao = new ContactFileDao(CONTACT_FILE_PATH);
+        AddressBook addressBook = new AddressBook(personDao, contactDao);
+//        addressBook.getInformationAboutPerson(3);
+        Menu a = new Menu(addressBook);
+        a.showMenu();
     }
 }
